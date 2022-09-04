@@ -4,42 +4,61 @@ const qr = document.getElementById('qrcode');
 const onGenerateSubmit = (e) => {
     e.preventDefault();
 
+    clearUI();
+
     const url = document.getElementById('url').value;
     const size = document.getElementById('size').value;
 
-    console.log(size);
-
-    if (url == '') {
+    // Validate url
+    if (url === '') {
         alert('Please enter a URL');
     } else {
         showSpinner();
-
+        // Show spinner for 1 sec
         setTimeout(() => {
-            hideSpinner()
+            hideSpinner();
+            generateQRCode(url, size);
 
-            generateQRCode(url, size)
+            // Generate the save button after the qr code image src is ready
+            setTimeout(() => {
+                // Get save url
+                const saveUrl = qr.querySelector('img').src;
+                // Create save button
+                createSaveBtn(saveUrl);
+            }, 50);
         }, 1000);
-
     }
+};
 
-    // Show spinner
-    const showSpinner = () => {
-        const spinner = document.getElementById('spinner');
-        spinner.style.display = 'block';
-    };
-    // Hide spinner
-    const hideSpinner = () => {
-        const spinner = document.getElementById('spinner');
-        spinner.style.display = 'none';
-    };
-    const generateQRCode = (url, size) => {
-        const qrcode = new QRCode('qrcode', {
-            text: url,
-            width: size,
-            height: size,
-        });
-    };
-}
+// Generate QR code
+const generateQRCode = (url, size) => {
+    const qrcode = new QRCode('qrcode', {
+        text: url,
+        width: size,
+        height: size,
+    });
+};
+
+// Clear QR code and save button
+const clearUI = () => {
+    qr.innerHTML = '';
+    const saveBtn = document.getElementById('save-link');
+    if (saveBtn) {
+        saveBtn.remove();
+    }
+};
+
+// Show spinner
+const showSpinner = () => {
+    const spinner = document.getElementById('spinner');
+    spinner.style.display = 'block';
+};
+
+// Hide spinner
+const hideSpinner = () => {
+    const spinner = document.getElementById('spinner');
+    spinner.style.display = 'none';
+};
 
 const createSaveBtn = (saveUrl) => {
     const link = document.createElement('a');
@@ -55,4 +74,4 @@ const createSaveBtn = (saveUrl) => {
 hideSpinner();
 
 form.addEventListener('submit', onGenerateSubmit);
-form.addEventListener('submit', onGenerateSubmit);
+
