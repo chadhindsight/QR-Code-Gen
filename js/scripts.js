@@ -12,13 +12,29 @@ const onGenerateSubmit = (e) => {
     if (url == '') {
         alert('Please enter a URL');
     } else {
+        showSpinner();
 
+        setTimeout(() => {
+            hideSpinner()
+        }, 1000);
     }
 
     // Show spinner
     const showSpinner = () => {
         const spinner = document.getElementById('spinner');
         spinner.style.display = 'block';
+    };
+    // Hide spinner
+    const hideSpinner = () => {
+        const spinner = document.getElementById('spinner');
+        spinner.style.display = 'none';
+    };
+    const generateQRCode = (url, size) => {
+        const qrcode = new QRCode('qrcode', {
+            text: url,
+            width: size,
+            height: size,
+        });
     };
 }
 
