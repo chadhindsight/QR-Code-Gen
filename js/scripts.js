@@ -8,6 +8,18 @@ const onGenerateSubmit = (e) => {
     const size = document.getElementById('size').value;
 
     console.log(size);
+
+    if (url == '') {
+        alert('Please enter a URL');
+    } else {
+
+    }
+
+    // Show spinner
+    const showSpinner = () => {
+        const spinner = document.getElementById('spinner');
+        spinner.style.display = 'block';
+    };
 }
 
 form.addEventListener('submit', onGenerateSubmit);
