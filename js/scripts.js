@@ -23,7 +23,7 @@ const onGenerateSubmit = (e) => {
             setTimeout(() => {
                 // Get save url
                 const saveUrl = qr.querySelector('img').src;
-                // Create save button
+                // Create save button. Book
                 createSaveBtn(saveUrl);
             }, 50);
         }, 1000);
