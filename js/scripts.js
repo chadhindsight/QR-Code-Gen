@@ -10,7 +10,7 @@ const onGenerateSubmit = (e) => {
     const size = document.getElementById('size').value;
 
     // Basic URL validation
-    if (url === '') {
+    if (url === "") {
         alert('Please enter a URL');
     } else {
         showSpinner();
