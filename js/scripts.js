@@ -54,7 +54,7 @@ const showSpinner = () => {
     spinner.style.display = 'block';
 };
 
-// Hide spinnerBirdo
+// Hide spinner
 const hideSpinner = () => {
     const spinner = document.getElementById('spinner');
     spinner.style.display = 'none';
