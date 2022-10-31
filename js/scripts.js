@@ -9,7 +9,6 @@ const onGenerateSubmit = (e) => {
     const url = document.getElementById('url').value;
     const size = document.getElementById('size').value;
 
-    // Basic URL validationdfsdf
     if (url === "") {
         alert('Please enter a URL');
     } else {
