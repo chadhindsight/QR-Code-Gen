@@ -8,7 +8,7 @@ const onGenerateSubmit = (e) => {
 
     const url = document.getElementById('url').value;
     const size = document.getElementById('size').value;
-
+    // one push
     if (url === "") {
         alert('Please enter a URL');
     } else {
