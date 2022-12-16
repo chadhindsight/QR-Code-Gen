@@ -13,7 +13,7 @@ const onGenerateSubmit = (e) => {
         alert('Please enter a URL');
     } else {
         showSpinner();
-        // Show loading spinner for 1 sec.
+        // Show loading spinner for 1 sec
         setTimeout(() => {
             hideSpinner();
             generateQRCode(url, size);
